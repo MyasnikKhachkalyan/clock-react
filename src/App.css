@@ -1,38 +1,100 @@
+@keyframes rotate-clock {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .App {
+  display: flex;
+}
+
+.analog {
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  left: 50%;
+  height: 200px;
+  transform-origin: bottom left;
+}
+
+.seconds {
+  top: 24.5%;
+  border-left: solid 1px red;
+  animation: rotate-clock 60s infinite linear;
+}
+
+.minutes {
+  top: 27%;
+  height: 180px;
+  border-left: solid 1px green;
+  animation: rotate-clock 3600s infinite linear;
+}
+
+.hours {
+  top: 32%;
+  height: 140px;
+  border-left: solid 2px blue;
+  animation: rotate-clock 43200s infinite linear;
+}
+
+.binary-container {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+}
+
+.header-footer {
+  display: flex;
+  justify-content: space-around;
+  width: 500px;
+}
+
+.footer {
+  padding-left: 6px;
+}
+
+.binary {
+  display: flex;
+  justify-content: space-around;
+  width: 500px;
+  height: 195px;
+  margin: 10px 0;
+}
+
+.bin-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.bin-square {
+  width: 20px;
+  height: 30px;
+  background-color: lightgray;
+  border-radius: 3px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bin-square:not(:first-child) {
+  margin-top: 25px;
+}
+
+.time-unit-num {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bin-num {
+  font-size: 10px;
+  margin-top: 5px;
 }
